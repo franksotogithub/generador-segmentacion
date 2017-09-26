@@ -38,6 +38,9 @@ magick-*
 
 #bats
 .bat
+backup*
+
+###errors, backups
 
 
 
