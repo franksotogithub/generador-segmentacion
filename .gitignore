@@ -33,9 +33,14 @@ wheels/
 .dropbox.cache/
 copias/
 toolbox_exportacion/
-
 #todos los magick
 magick-*
+
+#bats
+.bat
+
+
+
 
 *.egg-info/
 .installed.cfg
