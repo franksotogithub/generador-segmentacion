@@ -1,0 +1,1 @@
+C:\Python27\ArcGIS10.3\python.exe D:\Dropbox\scripts\procesar_reportes_distritales.py %*

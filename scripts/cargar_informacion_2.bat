@@ -1,0 +1,1 @@
+C:\Python27\ArcGIS10.3\python.exe D:\Dropbox\scripts\carga_informacion_2.py %*
