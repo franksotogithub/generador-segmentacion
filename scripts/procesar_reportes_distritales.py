@@ -19,7 +19,6 @@ path_urbano_croquis_listado= path_out_final+"\\REPORTES-DISTRITALES"
 
 
 
-
 ##############################obeteniedo reportes distritales
 def ObtenerReporteDistrital(ubigeo,distope,fase):
     conn = conx.Conexion()
@@ -107,7 +106,7 @@ cursor = c.cursor()
 
 sql = """
     select distinct b.ubigeo from  dbo.REPORTE_DISTRITAL b
-    where b.fase='{fase}' and ubigeo='150604' --and substring(ubigeo,1,2)   in ('01') --and substring(ubigeo,1,2)>13 
+    where b.fase='{fase}' --and ubigeo='150604' --and substring(ubigeo,1,2)   in ('01') --and substring(ubigeo,1,2)>13 
     order by b.ubigeo
     """.format(fase=fase)
 cursor.execute(sql)

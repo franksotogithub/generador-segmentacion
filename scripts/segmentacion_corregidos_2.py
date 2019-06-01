@@ -1026,9 +1026,11 @@ crear_carpetas_exportacion(data=data, campos=campos)
 
 
 
+
+print tipo
+
 if tipo=='1':
-    #crear_carpetas_exportacion(data=data, campos=campos)
-    #print ubigeox,zonax,tipo
+
     exportar_croquis_aeu_corregidos(where_expression=where1)
     exportar_croquis_seccion_corregidos(where_expression=where1)
     exportar_croquis_urbano_zona_subzona_corregidos(where_expression=where1)

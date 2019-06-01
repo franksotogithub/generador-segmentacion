@@ -532,7 +532,7 @@ def exportar_croquis_aeu_corregidos(where_expression=''):
             arcpy.mapping.ExportToPDF(mxd, out_croquis, data_frame="PAGE_LAYOUT", resolution=300)
             error_export_pdf(path_urbano_croquis, ubigeo, zona, codigo, out_croquis, mxd)
             obtener_datos_pdf_con_error(out_final)
-            #listado.ListadoAEU(informacion, out_listado)
+
 
             pdfDoc = arcpy.mapping.PDFDocumentCreate(out_final)
             pdfDoc.appendPages(out_croquis)
@@ -540,14 +540,7 @@ def exportar_croquis_aeu_corregidos(where_expression=''):
 
             pdfDoc.saveAndClose()
 
-            #[cant_pag,nomb_web]=obtener_datos_pdf(out_final)
-#
-#
-            #row[6]=cant_pag
-            #row[7]=codigo
-            #row[8]=out_final
-            #row[9]=nomb_web
-            #cursor.updateRow(row)
+
 
 
             arcpy.mapping.RemoveLayer(df, lyrFile1)

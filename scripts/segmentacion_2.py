@@ -173,8 +173,6 @@ def CrearCarpetasSegmentacion():
     list_paths=[path_proyecto_segm,
         path_ini,
 
-
-
         ]
 
     for el in  list_paths:

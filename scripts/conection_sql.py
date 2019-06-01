@@ -137,38 +137,6 @@ def actualizar_flag_calidad_input_zonas(ubigeo,zona,flag,equipo):
 
 
     if flag==1:
-        #sql_query = """
-        #begin
-#
-        #update a
-        #set a.flag_proc_calidad_input=b.flag,a.fec_proc_calidad_input=getdate(),a.equipo_proc_calidad_input='{}'
-        #from
-        #(select * from tb_zona where ubigeo='{}' and zona='{}' )a
-        #inner join
-        #(
-        #select ubigeo,zona,case when
-        #'SI' NOT IN(
-        #ERROR_1_INPUT,
-        #ERROR_2_INPUT,
-        #ERROR_3_INPUT,
-        #ERROR_4_INPUT,
-        #ERROR_5_INPUT,
-        #ERROR_6_INPUT,
-        #ERROR_7_INPUT,
-        #ERROR_8_INPUT,
-        #ERROR_9_INPUT,
-#
-        #ERROR_11_INPUT,
-        #ERROR_12_INPUT,
-        #ERROR_13_INPUT
-        #)
-        #THEN 1 ELSE 4 END  flag
-        #from  vw_control_calidad_input_urbano
-        #where ubigeo='{}' and zona='{}'
-        #) b on a.ubigeo=b.ubigeo and a.zona=b.zona
-        #end
-#
-        #""".format(equipo,ubigeo,zona,ubigeo,zona)
 
 
         sql_query="exec USP_ACTUALIZAR_FLAG_PROC_CALIDAD '{}', '{}', '{}'".format(ubigeo,zona,equipo)
@@ -356,10 +324,12 @@ def obtener_lista_zonas_segmentacion(cant_zonas,fase='CPV2017'):
     cursor.execute(sql_query)
     data=[]
     for row in cursor:
-        data.append(["{}".format(row[0]),"{}".format(row[1])])
+
+        data.append(["{}".format(row[0]),"{}".format(row[1]),row[2]])
     conn.commit()
     conn.close()
     return data
+
 
 
 

@@ -5,19 +5,8 @@ from datetime import *
 import os
 import socket
 import  reporte_distrital
+import generar_puntos_viviendas_incremento as g
 
-
-#for el in lista:
-#    try:
-#        theproc = subprocess.Popen("python segmentacion_1.py {} {}".format(el[0],el[1]), shell = True)
-#        theproc.communicate()
-#    except:
-#        print 'Algo salio mal'
-
-
-
-
-#
 
 path_proyecto="D:/proyecto-segmentacion-urbana"
 path_segm= os.path.join(path_proyecto, 'segmentacion')
@@ -46,29 +35,32 @@ def crear_carpetas_segmentacion():
             except:
                 continue
 
+
 equipo=socket.gethostname()
 fase='CPV2017'
 
 
-
 for el in range(1000):
-    lista = conex.obtener_lista_zonas_reproceso()
+    lista = conex.obtener_lista_zonas_segmentacion(1,fase)
     if len(lista)>0:
         for el in lista:
             print el
             ubigeo=el[0]
             zona=el[1]
+            nuevo=int(el[2])
+            if nuevo>0:
+                g.generar(data=[[ubigeo, zona, 1]])
             proceso = subprocess.Popen("python segmentacion_3.py {} {} {}".format(ubigeo, zona,fase), shell=True,stderr=subprocess.PIPE)
             errores = proceso.stderr.read()
             errores_print = '{}'.format(errores)
             print errores_print
             if len(errores_print) > 0:
                 print 'algo salido mal'
-
+                conex.actualizar_flag_proc_segm(ubigeo, zona, flag=2, equipo=equipo, fase=fase, error=errores_print)
 
             else:
                 print 'nada salio mal'
-
+                conex.actualizar_flag_proc_segm(ubigeo, zona, flag=1, equipo=equipo, fase=fase, error=errores_print)
     else:
         break
 

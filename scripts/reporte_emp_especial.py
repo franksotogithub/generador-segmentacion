@@ -1,22 +1,10 @@
-
 import sys
-import listado_urbano as listado
 import conection_sql as conx
-import math
-import pyPdf
 import expresiones_consulta_arcpy as expresion
-import pymssql
 import os
 import utilidades
-#server = "172.18.1.41"
-
 import arcpy
-
-
-
-
-
-
+import utilidades as u
 
 path_out_final="\\\\192.168.201.115\\cpv2017\\croquis-listado\\urbano"
 path_emp_esp= path_out_final+"\\EMPADRONAMIENTO-ESPECIAL"
@@ -32,12 +20,7 @@ path_pdf_1=os.path.join(path_emp_esp, "viv-colec-inst_dist")
 path_pdf_2=os.path.join(path_emp_esp, "viv-colec-no-inst_dist")
 path_pdf_3=os.path.join(path_emp_esp, "viv-colec-inst_zona")
 path_pdf_4=os.path.join(path_emp_esp, "viv-colec-no-inst_zona")
-
-
 fase='CPV2017'
-
-
-
 ubigeo='{}'.format(sys.argv[1])
 
 
@@ -232,6 +215,8 @@ def exportar_croquis_emp_especial(tipo,informacion,out_croquis):
     df.extent = zona_mfl.getSelectedExtent()
 
     arcpy.mapping.ExportToPDF(mxd, out_croquis, "PAGE_LAYOUT")
+    u.error_export_pdf(out_croquis, mxd)
+
 
     del mxd
     del df

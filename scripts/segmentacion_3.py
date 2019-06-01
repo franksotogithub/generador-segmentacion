@@ -2535,6 +2535,7 @@ def CrearSecciones():
 
         where_aeu=expresion.Expresion_2(ids_aeus, [["UBIGEO", "TEXT"], ["ZONA", "TEXT"], ["AEU", "SHORT"]])
 
+
         #print where_viv_min
         #print where_viv_max
 
@@ -2570,6 +2571,7 @@ def CrearSecciones():
         #     u", Interior N°{}".format(ultima_puerta[8]) if (ultima_puerta[8] != 0 and ultima_puerta[8] != " " )else "",
         #     u", {}".format(ultima_puerta[9])
         #     )
+
         rutas_lineas = arcpy.SelectLayerByAttribute_management("rutas_lineas_temp", "NEW_SELECTION", where_aeu)
         if (int(arcpy.GetCount_management(rutas_lineas).getOutput(0)) > 0):
             out_vertices = arcpy.FeatureVerticesToPoints_management(rutas_lineas, "in_memory/vertices_rutas", "ALL")
@@ -3892,12 +3894,6 @@ def SegmentacionTabular(data,campos=["UBIGEO","ZONA"]):
         print datetime.today()
     print datetime.today()
 
-    #arcpy.Dissolve_management(tb_rutas_lineas, tb_rutas_lineas_temp,
-    #                          ["UBIGEO", "ZONA", "TIPO", "CODCCPP", "AEU", "MANZANA"])
-    #arcpy.CopyFeatures_management(tb_rutas_lineas_temp, tb_rutas_lineas)
-
-
-
     list_aeus=[[x[0],x[1],x[2],x[3]] for x in arcpy.da.SearchCursor(tb_aeus,['UBIGEO','ZONA','AEU','CANT_VIV'])]
     list_rutas =[ [x[0],x[1],x[2],x[3],x[4]] for x in  arcpy.da.SearchCursor(tb_rutas, ['UBIGEO', 'ZONA', 'AEU','MANZANA', 'CANT_VIV'])]
 
@@ -3960,6 +3956,7 @@ def Segmentacion(data=[],campos=["UBIGEO","ZONA"]):
 
 def CroquisListados(data):
     ExportarSegmTab(data)
+
 
 datax=[[ubigeox,zonax]]
 campos=["UBIGEO","ZONA"]

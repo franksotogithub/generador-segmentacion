@@ -178,8 +178,7 @@ def insertar_registros():
 
 
 
-    list_zonas = list(
-        set((x[0], x[1]) for x in arcpy.da.SearchCursor(tb_frentes, ['UBIGEO', 'ZONA'])))
+    list_zonas = list(set((x[0], x[1]) for x in arcpy.da.SearchCursor(tb_frentes, ['UBIGEO', 'ZONA'])))
 
 
     sql=u'{}'.format(expresion.expresion_sql(data=list_zonas,campos=[["UBIGEO","TEXT"],["ZONA","TEXT"]]))
@@ -220,7 +219,6 @@ def insertar_registros():
 
 def generar(data=[["230110","01001",1]], campos=[["UBIGEO","TEXT"],["ZONA","TEXT"],["FLAG_NUEVO","SHORT"]]):
     importar_tablas_trabajo(data=data, campos=campos)
-#importar_tablas_trabajo(data=[["15",1]], campos=[["CCDD","TEXT"],["FLAG_NUEVO","SHORT"]])
     crear_viviendas_nuevas()
     insertar_registros()
 

@@ -44,9 +44,9 @@ def obtener_lista_zonas_insercion():
     sql_query = """
                 select  ubigeo,zona from marco_zona
                 where
-                --flag_data_insert=0 and
+                flag_data_insert=0 and
 
-                flag_proc_segm=1 and fase='CPV2017' and ubigeo +zona in  ('15010800301')
+                flag_proc_segm=1 and fase='CPV2017' --and flag_nuevo=1 --and ubigeo +zona in  ('15010800301')
 
 
                 """

@@ -11,10 +11,9 @@ import  reporte_distrital
 
 
 fase='CPV2017'
-for el in range(1):
-    #lista = conex.obtener_lista_zonas_reproceso()
-    lista = [['040112','01700',3]]
-
+for el in range(100):
+    lista = conex.obtener_lista_zonas_reproceso()
+    
     if len(lista)>0:
         for el in lista:
             print el
@@ -25,7 +24,6 @@ for el in range(1):
             errores = proceso.stderr.read()
             errores_print = '{}'.format(errores)
             print errores_print
-
 
             if len(errores_print) > 0:
                 print 'algo salido mal'

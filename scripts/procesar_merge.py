@@ -25,24 +25,7 @@ def actualizar_zona(ubigeo,zona,flag,fase='CPV2017'):
 
 def procesar_merge():
 
-    #c = conx.Conexion()
-    #cursor = c.cursor()
-    #sql = """
-#
-#
-#
-    #        select  b.ubigeo,b.zona  from  dbo.MARCO_ZONA b
-    #         where
-    #         b.flag_proc_segm=1 and b.flag_data_insert=1 and b.flag_imp_total=0 and
-    #         substring(b.ubigeo,1,2) in ('15','07') AND
-    #         b.fase='CPV2017'
-    #        order by b.ubigeo,b.zona
-#
-#
-#
-    #    """
-    #cursor.execute(sql)
-    #print sql
+
     for i in range(1000):
         list=conx.obtener_lista_zonas_merge(1)
 

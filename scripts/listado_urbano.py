@@ -20,18 +20,14 @@ EscudoNacional = r'D:\Dropbox\imagenes\Escudo_BN.png'
 LogoInei = r'D:\Dropbox\imagenes\Inei_BN.png'
 
 def contar_registros(rows,ini,rango):
-    #ini = 20
-    #rango = 26
     dato = ini
-
-    #print rows
 
     while dato < rows:
         dato = dato + rango
     lista_ini = list(range(ini, dato - (rango - 1), rango))
-    #print lista_ini
+
     lista_fin = list(range(ini + rango, dato + 1, rango))
-    #print lista_fin
+
     lista_fin[-1] = rows
     final = zip(lista_ini, lista_fin)
     #print final
@@ -2469,7 +2465,6 @@ def listado_emp_especial(informacion,nivel,tipo,output):
            frente = viv[3]
            tvia = viv[4]
            nomvia=viv[5]
-           #nomvia = u"{}{}".format(viv[5][0:24], "..") if len(viv[5]) > 26 else viv[5]
            npuerta = viv[6]
            block = viv[7]
            mzmuni = viv[8]

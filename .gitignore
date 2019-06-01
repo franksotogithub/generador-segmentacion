@@ -9,7 +9,8 @@ __pycache__/
 
 # C extensions
 *.so
-
+*.dropbox
+*.dropboxcache
 #Dropbox
 .dropbox
 
